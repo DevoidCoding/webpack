@@ -19,7 +19,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'{{@if_eq scriptlang "tscript"}}, '.ts'{{/if_eq}}],
+    extensions: ['.js', '.vue', '.json'{{#if_eq scriptlang "tscript"}}, '.ts'{{/if_eq}}],
     alias: {
       {{#if_eq build "standalone"}}
       'vue$': 'vue/dist/vue.esm.js',
