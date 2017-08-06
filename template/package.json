@@ -101,6 +101,7 @@
     "rimraf": "^2.6.0",
     {{#if_eq scriptlang "tscript"}}
     "vue-class-component": "^5.0.2",
+    {{/if_eq}}
     "url-loader": "^0.5.8",
     "vue-loader": "^12.1.0",
     "vue-style-loader": "^3.0.1",
