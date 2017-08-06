@@ -103,7 +103,6 @@ module.exports = {
     "build/webpack.test.conf.js": "unit",
     "test/e2e/**/*": "e2e",
     "src/**/*.js": "scriptlang === 'jscript'",
-    ".babelrc": "scriptlang === 'jscript'",
     "src/**/*.ts": "scriptlang === 'tscript'",
     "typings/**/*": "scriptlang === 'tscript'",
     "tsconfig.json": "scriptlang === 'tscript'",
