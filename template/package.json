@@ -24,6 +24,9 @@
     "babel-eslint": "^7.1.1",
     {{/lint}}
     "babel-loader": "^7.1.1",
+    {{#if_eq scriptlang "tscript"}}
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    {{/if_eq}}
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-preset-env": "^1.3.2",
     "babel-preset-stage-2": "^6.22.0",

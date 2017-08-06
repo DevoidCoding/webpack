@@ -8,7 +8,7 @@
     }],
     "stage-2"
   ],
-  "plugins": ["transform-runtime"],
+  "plugins": ["transform-runtime"{{#if_eq scriptlang "tscript"}}, "transform-decorators-legacy"{{/if_eq}}],
   "env": {
     "test": {
       "presets": ["env", "stage-2"],
