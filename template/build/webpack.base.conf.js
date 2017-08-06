@@ -9,17 +9,17 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './src/main.{{#if_eq scriptlang "jscript"}}js{{/if_eq}}{{#if_eq scriptlang "tscript"}}ts{{/if_eq}}'
   },
   output: {
     path: config.build.assetsRoot,
-    filename: '[name].js',
+    filename: {{#if_eq scriptlang "jscript"}}'[name].js'{{/if_eq}}{{#if_eq scriptlang "tscript"}}'./dist/bundle.js'{{/if_eq}},
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json'{{@if_eq scriptlang "tscript"}}, '.ts'{{/if_eq}}],
     alias: {
       {{#if_eq build "standalone"}}
       'vue$': 'vue/dist/vue.esm.js',
@@ -31,7 +31,7 @@ module.exports = {
     rules: [
       {{#lint}}
       {
-        test: /\.(js|vue)$/,
+        test: /\.({{#if_eq scriptlang "jscript"}}js{{/if_eq}}{{#if_eq scriptlang "tscript"}}ts{{/if_eq}}|vue)$/,
         loader: 'eslint-loader',
         enforce: 'pre',
         include: [resolve('src'), resolve('test')],
@@ -45,11 +45,23 @@ module.exports = {
         loader: 'vue-loader',
         options: vueLoaderConfig
       },
+      {{#if_eq scriptlang "jscript"}}
       {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test')]
       },
+      {{/if_eq}}
+      {{#if_eq scriptlang "tscript"}}
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        include: [resolve('src')],
+        options: {
+          appendTsSuffixTo: ['\\.vue$']
+        }
+      },
+      {{/if_eq}}
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',

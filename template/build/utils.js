@@ -69,3 +69,13 @@ exports.styleLoaders = function (options) {
   }
   return output
 }
+
+{{#if_eq scriptlang "tscript"}}
+exports.tsLoader = function(options) {
+  return {
+    ts: {
+      loader: 'ts-loader'
+    }
+  }
+}
+{{/if_eq}}

@@ -21,6 +21,7 @@
 </template>
 
 <script>
+{{#if_eq scriptlang "jscript"}}
 export default {
   name: 'hello',
   data{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {
@@ -29,6 +30,17 @@ export default {
     }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+{{/if_eq}}
+{{#if_eq scriptlang "tscript"}}
+import Vue from 'vue'
+import Component from 'vue-class-component'
+
+@Component({
+})
+export default class Hello extends Vue {
+  msg: string = 'Welcome to Your Vue.js App'
+}
+{{/if_eq}}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -40,6 +40,22 @@ module.exports = {
         }
       ]
     },
+    "scriptlang": {
+      "type": "list",
+      "message": "Script Language",
+      "choices": [
+        {
+            "name": "JavaScript (JS)",
+            "value": "jscript",
+            "short": "JScript"
+        },
+        {
+            "name": "TypeScript (TS)",
+            "value": "tscript",
+            "short": "TScript"
+        }
+        ]
+    },
     "router": {
       "type": "confirm",
       "message": "Install vue-router?"
@@ -86,7 +102,13 @@ module.exports = {
     "test/unit/**/*": "unit",
     "build/webpack.test.conf.js": "unit",
     "test/e2e/**/*": "e2e",
-    "src/router/**/*": "router"
+    "src/router/**/*": "router",
+    "src/**/*.js": "jscript",
+    ".babelrc": "jscript",
+    "src/**/*.ts": "tscript",
+    "typings/**/*": "tscript",
+    "tsconfig.json": "tscript",
+    "tsd.json": "tscript"
   },
   "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack"
 };

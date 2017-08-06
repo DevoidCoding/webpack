@@ -10,6 +10,7 @@
 </template>
 
 <script>
+{{#if_eq scriptlang "jscript"}}
 {{#unless router}}
 import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
@@ -20,6 +21,21 @@ export default {
     Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{/router}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+{{/if_eq}}
+{{#if_eq scriptlang "tscript"}}
+import Vue from 'vue'
+import Component from 'vue-class-component'
+
+@Component({
+  {{#router}}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{else}},
+  components: {
+    Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{/router}}
+}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+})
+export default class App extends Vue {
+}
+{{/if_eq}}
 </script>
 
 <style>

@@ -85,6 +85,13 @@
     {{/e2e}}
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
+    {{#if_eq scriptlang "tscript"}}
+    "ts-loader": "^2.3.2",
+    "typescript": "^2.4.2",
+    {{#lint}}
+    "typescript-eslint-parser": "^5.0.0",
+    {{/lint}}
+    {{/if_eq}}
     "opn": "^5.1.0",
     "optimize-css-assets-webpack-plugin": "^2.0.0",
     "ora": "^1.2.0",
