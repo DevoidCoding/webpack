@@ -10,11 +10,11 @@
 </template>
 
 <script>
-{{#if_eq scriptlang "jscript"}}
 {{#unless router}}
 import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 {{/unless}}
+{{#if_eq scriptlang "jscript"}}
 export default {
   name: 'app'{{#router}}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{else}},
   components: {
