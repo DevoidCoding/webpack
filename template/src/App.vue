@@ -31,7 +31,6 @@ components: {
     Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 {{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-{{/if_eq}}
 }){{/router}}
 export default class App extends Vue {
 }
