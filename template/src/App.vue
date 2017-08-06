@@ -26,13 +26,13 @@ export default {
 import Vue from 'vue'
 import Component from 'vue-class-component'
 
-@Component({{#!router}}{
+@Component{{#router}}(){{else}}({
 components: {
     Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{/router}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/if_eq}}
-}{{/router}})
+}){{/router}}
 export default class App extends Vue {
 }
 {{/if_eq}}
