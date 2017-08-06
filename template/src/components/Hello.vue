@@ -20,7 +20,7 @@
   </div>
 </template>
 
-<script>
+<script{{#if_eq scriptlang "tscript"}} lang="ts"{{/if_eq}}>
 {{#if_eq scriptlang "jscript"}}
 export default {
   name: 'hello',
